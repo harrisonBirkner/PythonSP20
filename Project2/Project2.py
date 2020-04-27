@@ -6,6 +6,7 @@ try:
 	loginInfo = open('password.dat', 'r')
 except IOError:
 	print("ERROR! There was an issue opening the file 'password.dat'.")
+	exit(0)
 
 def mainMenu():
 	print('\n\n*****MAIN MENU*****')
@@ -23,7 +24,8 @@ def mainMenu():
 			elif userOption == 3:
 				resetPassword()
 			elif userOption == 4:
-				pass
+				print('Program terminated')
+				exit(0)
 			else:
 				raise ValueError
 			break
@@ -37,14 +39,14 @@ def signIn():
 	if inputId in idList:
 		pass
 	else:
-		print('No matching login id found. Returning to menu...\n')
+		print('No matching login id found. Returning to menu...')
 		mainMenu()
 
 	inputPassword = input('\nEnter password: ')
 	if inputPassword == passwordList[idList.index(inputId)]:
 		pass
 	else:
-		print('Password does not match the login id entered. Returning to menu...\n')
+		print('Password does not match the login id entered. Returning to menu...')
 		mainMenu()
 
 	print('You have successfully been logged in!')
@@ -65,15 +67,28 @@ def newUser():
 		newPass, valPassFlag = validatePass(newPass, valPassFlag, newId)
 	print('Password valid!')
 	appendNewLogin(newId, newPass)
-	input('login id and password saved! Press enter to return to the main menu...\n')
+	input('login id and password saved! Press enter to return to the main menu...')
 	mainMenu()
 
 def appendNewLogin(newId, newPass):
+	loginInfo = openFileForWrite()
 	idList.append(newId)
 	passwordList.append(newPass)
 
-	loginInfo.write(newId + '\n')
-	loginInfo.write(newPass + '\n')
+	for x in range(0, len(idList)):
+		loginInfo.write(idList[x] + '\n')
+		loginInfo.write(passwordList[x] + '\n')
+
+	loginInfo.close
+
+def openFileForWrite():
+	#this try/except clause checks for errors opening the dat file
+	try:
+		loginInfo = open('password.dat', 'w')
+	except IOError:
+		print("ERROR! There was an issue opening the file 'password.dat'.")
+		exit(0)
+	return loginInfo
 
 def validateId(newId, valIdFlag):
 	if len(newId) > 5 and len(newId) < 11:
@@ -191,6 +206,8 @@ def init():
 		passwordList.append(password)
 		
 		id = CreateIdList()
+
+	loginInfo.close
 	
 def main():
 	init()
