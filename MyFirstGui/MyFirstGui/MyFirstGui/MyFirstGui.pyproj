@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>56688a47-35e0-4019-92c5-0020aa975f47</ProjectGuid>
+    <ProjectGuid>6afe2dc7-cd7f-4db1-a2a7-f098988fd846</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Gabe.py</StartupFile>
+    <StartupFile>CheckButtonDemo.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>GroupProject</Name>
-    <RootNamespace>GroupProject</RootNamespace>
+    <Name>MyFirstGui</Name>
+    <RootNamespace>MyFirstGui</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,11 +21,26 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Ben.py" />
-    <Compile Include="Harrison.py">
+    <Compile Include="CheckButtonDemo.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gabe.py">
+    <Compile Include="FrameDemo.py" />
+    <Compile Include="ButtonDemo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Label.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QuitButton.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadioButton.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestAverages.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindowDisplay.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

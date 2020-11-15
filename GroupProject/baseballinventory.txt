@@ -1,0 +1,1 @@
+{"Louisville Slugger": 500.0, "Nike Force Cleats": 60.0, "Rawlings Batting Gloves": 18.0, "Nike Glasses": 36.0}
